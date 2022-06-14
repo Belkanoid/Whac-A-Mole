@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Whac-A-Mole</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="play">Play</string>
+    <string name="rules">RULES: the game continues for 30 seconds, during which you need to score the maximum number of points</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
