@@ -8,8 +8,6 @@ class GameViewModel : ViewModel() {
     private val _score = MutableLiveData(0)
     val score : LiveData<Int> = _score
 
-    fun getScore() = _score.value
-
     fun inScore() {
         _score.value = _score.value?.plus(1)
     }

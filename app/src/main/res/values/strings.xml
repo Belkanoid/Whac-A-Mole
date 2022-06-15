@@ -5,4 +5,8 @@
     <string name="rules">RULES: the game continues for 30 seconds, during which you need to score the maximum number of points</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="play_again">Play Again</string>
+    <string name="main_menu">main menu</string>
+    <string name="max_score">MAX SCORE %1$s</string>
+    <string name="score">SCORE %1$s</string>
 </resources>

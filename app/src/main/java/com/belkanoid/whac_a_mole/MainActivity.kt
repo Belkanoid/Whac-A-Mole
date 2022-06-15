@@ -1,24 +1,22 @@
 package com.belkanoid.whac_a_mole
 
+import android.app.Application
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.belkanoid.whac_a_mole.view.EntryMenuFragment
+import com.belkanoid.whac_a_mole.common.Callbacks
+import com.belkanoid.whac_a_mole.view.MainMenuFragment
 import com.belkanoid.whac_a_mole.view.GameFragment
 import com.belkanoid.whac_a_mole.view.ResultFragment
 
 class MainActivity
-    : AppCompatActivity(), EntryMenuFragment.Callbacks, GameFragment.Callbacks {
+    : AppCompatActivity(), Callbacks {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (savedInstanceState == null) {
-            val entryMenu = EntryMenuFragment.newInstance()
-            supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragment_container, entryMenu)
-                .commit()
-        }
+        onMainMenuEntered()
+
     }
 
     override fun onPlayButtonClicked() {
@@ -29,9 +27,16 @@ class MainActivity
             .commit()
     }
 
-    override fun onGameFinished() {
-        //TODO
-        val resultFragment = ResultFragment.newInstance()
+    override fun onMainMenuEntered() {
+        val entryMenu = MainMenuFragment.newInstance(application)
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragment_container, entryMenu)
+            .commit()
+    }
+
+    override fun onGameFinished(score : Int) {
+        val resultFragment = ResultFragment.newInstance(score, application)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.fragment_container, resultFragment)
